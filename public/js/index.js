@@ -1,7 +1,8 @@
 $(document).ready(function() {
 
     $("#submit-create-project").click(function(event) {
-        //console.log('aaaaaaaaaaaaaaaaaaaaaa');
+        event.preventDefault();
+        console.log('aaaaaaaaaaaaaaaaaaaaaa');
 
         var form = $(this).closest('form');
 
