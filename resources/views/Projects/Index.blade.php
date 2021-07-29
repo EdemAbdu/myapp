@@ -1,3 +1,4 @@
+{{--
 @extends('Layouts.app')
 
 @section('content')
@@ -65,3 +66,4 @@
     {!! $projects->links() !!}
 
 @endsection
+--}}

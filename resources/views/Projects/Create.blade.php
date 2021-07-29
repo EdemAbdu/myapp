@@ -1,3 +1,4 @@
+{{--
 @extends('Layouts.app')
 
 @section('content')
@@ -58,3 +59,4 @@
 
     </form>
 @endsection
+--}}

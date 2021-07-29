@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProjectController;
+//use App\Http\Controllers\ProjectController;
+//use App\Http\Controllers\Auth\RegisterController;
+//use App\Http\Controllers\Auth\LoginController;
+//use App\Http\Controllers\Auth\ForgotPasswordController;
+//use App\Http\Controllers\Auth\ResetPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +24,24 @@ use App\Http\Controllers\ProjectController;
 //    return view('welcome');
 //});
 
-Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
-Route::get('login', [CustomAuthController::class, 'index'])->name('login');
-Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
-Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
-Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
-Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('register', [\App\Http\Controllers\Auth\RegisterController::class, 'register']);
+Route::post('register', [\App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
+
+Route::get('login', [\App\Http\Controllers\Auth\LoginController::class, 'login']);
+Route::post('login', [\App\Http\Controllers\Auth\LoginController::class, 'store'])->name('login');
+Route::get('logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+
+Route::get('home', [\App\Http\Controllers\Auth\LoginController::class, 'home'])->name('home');
+
+Route::get('forget-password', [\App\Http\Controllers\Auth\ForgotPasswordController::class, 'getEmail']);
+Route::post('forget-password', [\App\Http\Controllers\Auth\ForgotPasswordController::class, 'postEmail']);
+Route::get('reset-password/{token}', [\App\Http\Controllers\Auth\ResetPasswordController::class, 'getPassword']);
+Route::post('reset-password', [\App\Http\Controllers\Auth\ResetPasswordController::class, 'updatePassword']);
+
+//Route::namespace('App\Http\Controllers')->group(function () {
+//    Auth::routes();
+//});

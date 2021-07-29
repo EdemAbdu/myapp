@@ -1,3 +1,4 @@
+{{--
 @extends('Layouts.app')
 
 
@@ -46,3 +47,4 @@
         </div>
     </div>
 @endsection
+--}}

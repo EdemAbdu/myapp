@@ -1,4 +1,4 @@
-<html>
+{{--<html>
 
 <head>
     <title>App Name - @yield('title')</title>
@@ -49,4 +49,4 @@
 </div>
 </body>
 
-</html>
+</html>--}}
